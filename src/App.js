@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+import jsonServerProvider from 'ra-data-json-server';
+import { Admin, Resource, ListGuesser } from 'react-admin';
+import { PostCreate, PostEdit, Providers } from './edit';
+
+import polyglotI18nProvider from 'ra-i18n-polyglot';
+import arabicMessages from 'ra-language-arabic';
+import { createMuiTheme } from '@material-ui/core/styles';
+import authProvider from "./auth";
+
+const theme = createMuiTheme({
+  direction: 'rtl',
+});
+
+const dataProvider = jsonServerProvider('http://localhost:6662/admin');
+// const App = () => <Admin dataProvider={dataProvider} />;
+
+
+const i18nProvider = polyglotI18nProvider(() => arabicMessages, 'ar');
+
+const App = () => (
+      <Admin authProvider={authProvider} dataProvider={dataProvider} i18nProvider={i18nProvider}>
+          <Resource name="providers" list={ListGuesser} edit={PostEdit} create={PostCreate}/>
+          <Resource name="count" list={ListGuesser} />
+          <Resource name="orders" list={ListGuesser} />
+      </Admin>
   );
-}
 
 export default App;
