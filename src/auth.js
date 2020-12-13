@@ -1,4 +1,21 @@
 // in src/authProvider.js
+
+/*
+let userIdentity = {};
+
+const authProvider = {
+    login: ({ username, password }) => {
+        // call the login endpoint, which returns id, fullName, avatar
+        // ...
+        // and store it in the closure
+        userIdentity = { id, fullName, avatar };
+    },
+    getIdentity: () => {
+        return userIdentity;
+    }
+    // ...
+};
+*/
 const authProvider = {
     login: ({ username, password }) =>  {
         const request = new Request('http://localhost:6662/admin/login', {
