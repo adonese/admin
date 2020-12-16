@@ -9,8 +9,6 @@ import { List, Datagrid, TextField } from 'react-admin';
 export const PostCreate = (props) => (
     <Create {...props}>
         <SimpleForm>
-                    
-       
             <TextInput source="fullname" />
             <TextInput source="mobile" />
             <TextInput source="username" />
@@ -18,6 +16,8 @@ export const PostCreate = (props) => (
             <BooleanInput source="mobile_checked" />
             <BooleanInput source="is_active" />
             <RichTextInput  source="description" />
+            <TextInput source="latitude" />
+            <TextInput source="longitude" />
         </SimpleForm>
     </Create>
 );
@@ -30,13 +30,14 @@ export const PostEdit = (props) => (
             <TextInput disabled label="Id" source="id" />
             <TextInput source="fullname" />
             <RichTextInput  source="description" />
+            <BooleanInput source="is_provider" />
             <BooleanInput source="is_active"/>
             <SelectInput helperText="Set the service provider rating" source="score" choices={[
-    { id: 1, name: '1' },
-    { id: 2, name: '2' },
-    { id: 3, name: '3' },
-    { id: 4, name: '4' },
-    { id: 5, name: '5' },
+            { id: 1, name: '1' },
+            { id: 2, name: '2' },
+            { id: 3, name: '3' },
+            { id: 4, name: '4' },
+            { id: 5, name: '5' },
 
    
 ]} 

@@ -22,6 +22,7 @@ const i18nProvider = polyglotI18nProvider(() => arabicMessages, 'ar');
 const App = () => (
       <Admin authProvider={authProvider} dataProvider={dataProvider} i18nProvider={i18nProvider}>
           <Resource name="providers" list={ListGuesser} edit={PostEdit} create={PostCreate}/>
+          <Resource name="users" list={ListGuesser} edit={PostEdit} create={PostCreate}/>
           <Resource name="count" list={ListGuesser} />
           <Resource name="orders" list={ListGuesser} />
       </Admin>
