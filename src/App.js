@@ -20,7 +20,7 @@ const dataProvider = jsonServerProvider('https://ondemand.soluspay.net/admin');
 const i18nProvider = polyglotI18nProvider(() => arabicMessages, 'ar');
 
 const App = () => (
-      <Admin dataProvider={dataProvider} i18nProvider={i18nProvider}>
+      <Admin authProvider={authProvider} dataProvider={dataProvider} i18nProvider={i18nProvider}>
           <Resource name="providers" list={ListGuesser} edit={PostEdit} create={PostCreate}/>
           <Resource name="users" list={ListGuesser} edit={PostEdit} create={PostCreate}/>
           <Resource name="count" list={ListGuesser} />

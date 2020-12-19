@@ -18,7 +18,7 @@ const authProvider = {
 */
 const authProvider = {
     login: ({ username, password }) =>  {
-        const request = new Request('http://localhost:6662/admin/login', {
+        const request = new Request('https://ondemand.soluspay.net/admin/login', {
             method: 'POST',
             body: JSON.stringify({ username, password }),
             headers: new Headers({ 'Content-Type': 'application/json' }),
