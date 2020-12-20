@@ -22,7 +22,6 @@ export const PostCreate = (props) => (
     </Create>
 );
 
-
 const choices = [
     {id: 1, name: "vehicle"},
     {id: 2, name: "ac"},
@@ -76,6 +75,9 @@ export const PostEdit = (props) => (
             <BooleanInput source="is_active"/>
             <BooleanInput source="mobile_checked"/>
             
+            <TextInput source="latitude" />
+            <TextInput source="longitude" />
+
             <SelectInput multiple helperText="Set the service provider rating" source="score" choices={[
             { id: 1, name: '1' },
             { id: 2, name: '2' },
