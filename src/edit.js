@@ -31,7 +31,7 @@ const choices = [
     {id: 35, name: "electricity"},
     {id: 34, name: "delivery"},
     {id: 33, name: "carpenter"},
-    {id:32, name: "colors"},
+    {id: 32, name: "colors"},
     {id: 31, name: "ceramics"},
     {id: 30, name: "smith"},
     {id: 29, name: "alumnuim"},
@@ -44,7 +44,7 @@ const choices = [
     {id: 22, name: "sweets"},
     {id: 21, name: "family_biz"},
     {id: 20, name: "taxi"},
-    {id:19, name: "wiw"},
+    {id: 19, name: "wiw"},
     {id: 18, name: "barber"},
     {id: 17, name: "wash"},
     {id: 16, name: "coop"},
@@ -100,6 +100,18 @@ export const PostEdit = (props) => (
 </Edit>
 );
 
+
+export const OrderEdit = (props) => (
+    <Edit {...props}>
+    <SimpleForm>        
+            <TextField disabled label="Id" source="id" />
+            <TextField source="user_id" />
+            <TextField source="provider_id" />
+            <TextField source="uuid" />
+            <SelectInput multiple helperText="Service ID" source="category" choices={choices} />
+    </SimpleForm>
+    </Edit>
+);
 
 
 export const Providers = (props) => (

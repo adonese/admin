@@ -2,7 +2,7 @@ import * as React from "react";
 
 import jsonServerProvider from 'ra-data-json-server';
 import { Admin, Resource, ListGuesser } from 'react-admin';
-import { PostCreate, PostEdit, Providers } from './edit';
+import { PostCreate, PostEdit, Providers, OrderEdit } from './edit';
 
 import polyglotI18nProvider from 'ra-i18n-polyglot';
 import arabicMessages from 'ra-language-arabic';
@@ -13,7 +13,7 @@ const theme = createMuiTheme({
   direction: 'rtl',
 });
 
-const dataProvider = jsonServerProvider('https://ondemand.soluspay.net/admin');
+const dataProvider = jsonServerProvider('http://localhost:6662/admin');
 // const App = () => <Admin dataProvider={dataProvider} />;
 
 
@@ -24,7 +24,7 @@ const App = () => (
           <Resource name="providers" list={ListGuesser} edit={PostEdit} create={PostCreate}/>
           <Resource name="users" list={ListGuesser} edit={PostEdit} create={PostCreate}/>
           <Resource name="count" list={ListGuesser} />
-          <Resource name="orders" list={ListGuesser} />
+          <Resource name="orders" list={ListGuesser} edit={OrderEdit} />
       </Admin>
   );
 
