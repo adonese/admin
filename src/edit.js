@@ -1,7 +1,7 @@
 // in src/posts.js
 import * as React from "react";
 import RichTextInput from 'ra-input-rich-text';
-import {   ReferenceArrayInput, AutocompleteArrayInput, ImageInput, SelectInput, BooleanField, Create, Edit, SimpleForm, TextInput, DateInput, ReferenceManyField, PasswordInput, LongTextInput , EditButton , BooleanInput } from 'react-admin';
+import {   Filter, ReferenceArrayInput, AutocompleteArrayInput, ImageInput, SelectInput, BooleanField, Create, Edit, SimpleForm, TextInput, DateInput, ReferenceManyField, PasswordInput, LongTextInput , EditButton , BooleanInput } from 'react-admin';
 // import { DualListInput } from '@react-admin/ra-relationships';
 
 import { List, Datagrid, TextField } from 'react-admin';
@@ -74,7 +74,7 @@ export const PostEdit = (props) => (
             <BooleanInput source="is_provider" />
             <BooleanInput source="is_active"/>
             <BooleanInput source="mobile_checked"/>
-            
+            <BooleanInput source="is_disabled"/>
             <TextInput source="latitude" />
             <TextInput source="longitude" />
 
@@ -112,6 +112,9 @@ export const OrderEdit = (props) => (
     </SimpleForm>
     </Edit>
 );
+
+
+
 
 
 export const Providers = (props) => (

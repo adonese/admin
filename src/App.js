@@ -8,12 +8,13 @@ import polyglotI18nProvider from 'ra-i18n-polyglot';
 import arabicMessages from 'ra-language-arabic';
 import { createMuiTheme } from '@material-ui/core/styles';
 import authProvider from "./auth";
+import {   Filter, TextInput } from 'react-admin';
 
 const theme = createMuiTheme({
   direction: 'rtl',
 });
 
-const dataProvider = jsonServerProvider('http://localhost:6662/admin');
+const dataProvider = jsonServerProvider('https://ondemand.soluspay.net/admin');
 // const App = () => <Admin dataProvider={dataProvider} />;
 
 
@@ -24,8 +25,14 @@ const App = () => (
           <Resource name="providers" list={ListGuesser} edit={PostEdit} create={PostCreate}/>
           <Resource name="users" list={ListGuesser} edit={PostEdit} create={PostCreate}/>
           <Resource name="count" list={ListGuesser} />
-          <Resource name="orders" list={ListGuesser} edit={OrderEdit} />
+          <Resource name="orders" list={ListGuesser} edit={OrderEdit} filters={<SearchFilter/>} />
       </Admin>
   );
+
+  export const SearchFilter = props => (
+    <Filter {...props}>
+      <TextInput label="Search" source="name" alwaysOn />
+    </Filter>
+  )
 
 export default App;
