@@ -12,7 +12,7 @@ import {   Filter, TextInput } from 'react-admin';
 
 
 
-const dataProvider = jsonServerProvider('http://localhost:6662/admin');
+const dataProvider = jsonServerProvider('https://ondemand.soluspay.net/admin');
 // const App = () => <Admin dataProvider={dataProvider} />;
 
 
