@@ -1,7 +1,7 @@
 // in src/posts.js
 import * as React from "react";
 import RichTextInput from 'ra-input-rich-text';
-import {  AutocompleteArrayInput, ImageInput, SelectInput, BooleanField, Create, Edit, SimpleForm, TextInput , BooleanInput } from 'react-admin';
+import {  AutocompleteArrayInput, ImageInput, SelectInput, BooleanField, Create, Edit, SimpleForm, TextInput , BooleanInput, DateField, ReferenceField } from 'react-admin';
 // import { DualListInput } from '@react-admin/ra-relationships';
 
 import { List, Datagrid, TextField } from 'react-admin';
@@ -64,6 +64,23 @@ const choices = [
     {id: 2, name: "marriage"},
     {id: 1, name: "car_wash"},
  ];
+
+
+ export const UserList = props => (
+    <List {...props}>
+        <Datagrid rowClick="edit">
+            <TextField source="id" />
+            <TextField source="username" />
+            <TextField source="fullname" />
+            <TextField source="mobile" />
+            <DateField source="created_at" />
+            <BooleanField source="is_provider" />
+            <BooleanField source="is_active" />
+            <BooleanField source="mobile_checked" />
+            <BooleanField source="is_disabled" />
+        </Datagrid>
+    </List>
+);
 
 export const PostEdit = (props) => (
     <Edit {...props}>
