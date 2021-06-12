@@ -1,7 +1,7 @@
 // in src/posts.js
 import * as React from "react";
 import RichTextInput from 'ra-input-rich-text';
-import {   Filter, ReferenceArrayInput, AutocompleteArrayInput, ImageInput, SelectInput, BooleanField, Create, Edit, SimpleForm, TextInput, DateInput, ReferenceManyField, PasswordInput, LongTextInput , EditButton , BooleanInput } from 'react-admin';
+import {  AutocompleteArrayInput, ImageInput, SelectInput, BooleanField, Create, Edit, SimpleForm, TextInput , BooleanInput } from 'react-admin';
 // import { DualListInput } from '@react-admin/ra-relationships';
 
 import { List, Datagrid, TextField } from 'react-admin';
