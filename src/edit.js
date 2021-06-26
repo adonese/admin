@@ -1,7 +1,7 @@
 // in src/posts.js
 import * as React from "react";
 import RichTextInput from 'ra-input-rich-text';
-import {  AutocompleteArrayInput, ImageInput, SelectInput, BooleanField, Create, Edit, SimpleForm, TextInput , BooleanInput, DateField, ReferenceField } from 'react-admin';
+import {  AutocompleteArrayInput, ImageInput, SelectInput, BooleanField, Create, Edit, SimpleForm, TextInput , BooleanInput, DateField, ReferenceField, ReferenceInput, Filter } from 'react-admin';
 // import { DualListInput } from '@react-admin/ra-relationships';
 
 import { List, Datagrid, TextField } from 'react-admin';
@@ -66,8 +66,18 @@ const choices = [
  ];
 
 
+ // PostFilter adds searching for users
+ const PostFilter = (props) => (
+    <Filter {...props}>
+        <TextInput label="Search" source="q" alwaysOn />
+        <ReferenceInput label="User" source="userId" reference="users" allowEmpty>
+            <SelectInput optionText="name" />
+        </ReferenceInput>
+    </Filter>
+);
+
  export const UserList = props => (
-    <List {...props}>
+    <List filters={<PostFilter />} {...props}>
         <Datagrid rowClick="edit">
             <TextField source="id" />
             <TextField source="username" />

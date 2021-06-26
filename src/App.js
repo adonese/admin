@@ -23,7 +23,6 @@ const App = () => (
           <Resource name="providers" list={UserList} edit={PostEdit} create={PostCreate}/>
           <Resource name="users" list={UserList} edit={PostEdit} create={PostCreate}/>
           <Resource name="count" list={ListGuesser} />
-          <Resource name="devices" list={ListGuesser} />
           <Resource name="orders" list={ListGuesser} edit={OrderEdit} filters={<SearchFilter/>} />
       </Admin>
   );
