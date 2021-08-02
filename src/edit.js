@@ -1,10 +1,16 @@
-// in src/posts.js
 import * as React from "react";
 import RichTextInput from 'ra-input-rich-text';
-import {  AutocompleteArrayInput, ImageInput, SelectInput, BooleanField, Create, Edit, SimpleForm, TextInput , BooleanInput, DateField, ReferenceField, ReferenceInput, Filter } from 'react-admin';
-// import { DualListInput } from '@react-admin/ra-relationships';
 
-import { List, Datagrid, TextField } from 'react-admin';
+import { downloadCSV ,AutocompleteArrayInput, ImageInput, SelectInput, BooleanField, Create, Edit, SimpleForm, TextInput , BooleanInput, DateField, ReferenceField, ReferenceInput, Filter } from 'react-admin';
+// import { DualListInput } from '@react-admin/ra-relationships';
+import { unparse as convertToCSV } from 'papaparse/papaparse.min';
+
+import { cloneElement } from 'react';
+import { List, ListActions, Button, CreateButton, ExportButton, TopToolbar } from 'react-admin';
+import IconEvent from '@material-ui/icons/Event';
+import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
+
+import { Datagrid, TextField } from 'react-admin';
 
 export const PostCreate = (props) => (
     <Create {...props}>
@@ -76,13 +82,32 @@ const choices = [
     </Filter>
 );
 
+
+const ActionsMod = (props) => (
+    <TopToolbar>
+        <CreateButton/>
+       
+        {/* Add your custom actions */}
+        <a href="https://ondemand.soluspay.net/export">{<CloudDownloadIcon/>}</a>
+
+    </TopToolbar>
+);
+
+
+const exporter = data => {
+    const csv = convertToCSV({data})
+    const BOM = '\uFEFF'
+    downloadCSV(`${BOM} ${csv}`, 'export')
+}
+
  export const UserList = props => (
-    <List filters={<PostFilter />} {...props}>
+    <List  filters={<PostFilter />} {...props} exporter={exporter} actions={<ActionsMod/>}>
         <Datagrid rowClick="edit">
             <TextField source="id" />
             <TextField source="username" />
             <TextField source="fullname" />
             <TextField source="mobile" />
+            <TextField source="city"/>
             <DateField source="created_at" />
             <BooleanField source="is_provider" />
             <BooleanField source="is_active" />

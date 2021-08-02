@@ -6,7 +6,6 @@ import { PostCreate, PostEdit, OrderEdit, UserList } from './edit';
 
 import polyglotI18nProvider from 'ra-i18n-polyglot';
 import arabicMessages from 'ra-language-arabic';
-import { createMuiTheme } from '@material-ui/core/styles';
 import authProvider from "./auth";
 import {   Filter, TextInput } from 'react-admin';
 
@@ -30,6 +29,7 @@ const App = () => (
   export const SearchFilter = props => (
     <Filter {...props}>
       <TextInput label="Search" source="name" alwaysOn />
+      
     </Filter>
   )
 
